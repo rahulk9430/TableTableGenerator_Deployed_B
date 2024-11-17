@@ -1,0 +1,117 @@
+h1 {
+  text-align: center;      /* Centers the heading text */
+  font-size: 2rem;         /* Optional: Adjust font size */
+  margin-bottom: 20px;     /* Adds space below the heading */
+  font-weight: bold;       /* Makes the text bold */
+  text-decoration: underline; /* Optional: Adds space below the heading */
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f7fa; /* Light background for the page */
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 80%;
+  max-width: 1000px;
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 2rem;  /* Increased font size for heading */
+}
+
+.search-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  width: 30%; /* Adjust this to fit the layout */
+  margin-right: 10px;
+}
+
+.timetable-grid {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.timetable-grid th, .timetable-grid td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.timetable-grid th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.timetable-grid td {
+  background-color: #fff;
+  color: #555;
+}
+
+.timetable-grid tr:nth-child(even) td {
+  background-color: #f9f9f9;
+}
+
+
+.timetable-grid tr:hover td {
+  background-color: #f1f1f1;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button-container {
+  display: flex;
+  gap: 16px; /* Space between buttons */
+  margin-top: 16px; /* Space above the button container */
+}
+
+button {
+  margin-top: 0; /* Remove default margin if any */
+}
+
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Highlighting alternate rows */
+.highlight-row {
+  background-color: #7ff4eb !important; /* Light gray background */
+}
+
+/* Optional styling for table cells */
+.timetable-grid td, .timetable-grid th {
+  padding: 8px 16px;
+  text-align: center;
+}

@@ -1,0 +1,65 @@
+/* Style for the card title */
+.card-header-title {
+  font-weight: bold;          /* Make the title bold */
+  text-decoration: underline; /* Underline the title */
+  text-align: center;         /* Center the title */
+  font-size: 2rem;            /* Adjust font size if necessary */
+  margin: 0;                  /* Remove default margin */
+  padding: 16px 0;            /* Add padding to the top and bottom */
+}
+
+/* Center the mat-card-header */
+.mat-card-header {
+  display: flex;
+  justify-content: center;    /* Center content horizontally */
+  align-items: center;        /* Align content vertically */
+  text-align: center;         /* Ensure the title text is centered */
+  width: 100%;                /* Ensure the header takes up the full width */
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.example-card {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.example-full-width {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.container {
+  padding: 20px;
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  align-items: center; /* Align buttons vertically (optional) */
+  gap: 16px; /* Space between the buttons */
+  margin-top: 16px;
+}
+
+button {
+  margin-top: 0; /* Remove default margin if any */
+}
+

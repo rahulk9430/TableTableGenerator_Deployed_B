@@ -1,0 +1,97 @@
+<div class="container">
+  <!-- Timetable Card with heading and search box -->
+  <div class="card">
+    <div class="header-container">
+      <h1>Timetable</h1>
+
+      <!-- Search Box for Day and Time -->
+      <div class="search-box">
+        <!-- Day Selection -->
+        <mat-form-field class="example-full-width" floatLabel="always">
+          <mat-label>Select Day</mat-label>
+          <mat-select [(ngModel)]="selectedDay">
+            <mat-option value disabled>Select Day</mat-option>
+            <mat-option *ngFor="let day of days" [value]="day">{{ day
+              }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Time Selection -->
+        <mat-form-field class="example-full-width" floatLabel="always">
+          <mat-label>Select Time</mat-label>
+          <mat-select [(ngModel)]="selectedTime">
+            <mat-option value disabled>Select Time</mat-option>
+            <mat-option *ngFor="let time of times" [value]="time">{{ time
+              }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Reset Button -->
+        <button mat-raised-button color="primary" (click)="resetFilters()">Reset
+          Filters</button>
+      </div>
+    </div>
+
+    <!-- Timetable Display -->
+    <table id="timetable-table" border="1" class="timetable-grid">
+      <thead>
+        <tr>
+          <th rowspan="2"><strong>Day/Time</strong></th>
+          <th rowspan="2"><strong>Semester</strong></th>
+          <th *ngFor="let time of times"><strong>{{ time }}</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Loop through filtered days and semesters -->
+        <ng-container *ngFor="let day of days">
+          <ng-container *ngIf="filterTimetable()[day]">
+            <tr *ngFor="let semester of semesters; let i = index"
+              [ngClass]="{'highlight-row': i % 2 === 0}">
+              <td *ngIf="i === 0" [attr.rowspan]="semesters.length">
+                <strong>{{ day }}</strong>
+              </td>
+              <td>{{ semester }}</td>
+              <td *ngFor="let time of times">
+                <span *ngIf="filterTimetable()[day][semester][time]">
+                  <!-- Display subject, teacher, and classroom with teacher in brackets -->
+                  {{ filterTimetable()[day][semester][time]?.subjectName }}
+                  <br />
+                  ({{ filterTimetable()[day][semester][time]?.teacherName }})
+                  <br />
+                  {{ filterTimetable()[day][semester][time]?.classroom }}
+                </span>
+
+                <!-- Conditionally render the update button -->
+                <!-- Edit Icon with warm color -->
+                <mat-icon
+                  *ngIf="filterTimetable()[day][semester][time]"
+                  mat-icon-button
+                  (click)="navigateToUpdatePage(day, semester, time)"
+                  style="color: #ff9800; cursor: pointer;"> <!-- Warm orange color -->
+                  mode_edit
+                </mat-icon>
+
+                <!-- Delete Icon with red color -->
+                <mat-icon
+                  *ngIf="filterTimetable()[day][semester][time]"
+                  mat-icon-button
+                  (click)="deleteTimetableEntry(day, semester, time)"
+                  style="color: #f44336; cursor: pointer;"> <!-- Red color -->
+                  delete
+                </mat-icon>
+
+              </td>
+            </tr>
+          </ng-container>
+        </ng-container>
+      </tbody>
+    </table>
+
+    <!-- Button to navigate to Create TimeTable page -->
+    <div class="button-container">
+      <button mat-raised-button color="primary" routerLink="/create">Create Timetable</button>
+      <button mat-raised-button color="accent" (click)="printTimetable()">Print Timetable</button>
+    </div>
+    
+  </div>
+</div>

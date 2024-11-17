@@ -1,0 +1,66 @@
+<div class="container">
+    <h1>Timetable Management</h1>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Subject</mat-label>
+      <input matInput [(ngModel)]="subjectName" />
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Semester</mat-label>
+      <input matInput [(ngModel)]="semesterName" />
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Teacher</mat-label>
+      <input matInput [(ngModel)]="teacherName" />
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Day</mat-label>
+      <input matInput [(ngModel)]="day" />
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Time</mat-label>
+      <input matInput [(ngModel)]="time" />
+    </mat-form-field>
+  
+    <button mat-raised-button (click)="searchTimetable()">Search</button>
+  
+    <mat-table [dataSource]="timetable">
+      <ng-container matColumnDef="subjectName">
+        <mat-header-cell *matHeaderCellDef> Subject </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.subjectName}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="teacherName">
+        <mat-header-cell *matHeaderCellDef> Teacher </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.teacherName}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="day">
+        <mat-header-cell *matHeaderCellDef> Day </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.day}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="time">
+        <mat-header-cell *matHeaderCellDef> Time </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.time}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="classroom">
+        <mat-header-cell *matHeaderCellDef> Classroom </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.classroom}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="semesterName">
+        <mat-header-cell *matHeaderCellDef> Semester </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.semesterName}} </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+  

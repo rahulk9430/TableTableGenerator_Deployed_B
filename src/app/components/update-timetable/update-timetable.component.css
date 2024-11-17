@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.example-card {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.example-full-width {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.container {
+  padding: 20px;
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  align-items: center; /* Align buttons vertically (optional) */
+  gap: 16px; /* Space between the buttons */
+  margin-top: 16px;
+}
+
+button {
+  margin-top: 0; /* Remove default margin if any */
+}

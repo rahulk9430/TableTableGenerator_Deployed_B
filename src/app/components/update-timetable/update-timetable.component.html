@@ -1,0 +1,82 @@
+<div class="container">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Update Timetable Entry</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="updateTable()">
+        <!-- Subject Name Field -->
+        <mat-form-field class="example-full-width" floatLabel="always">
+          <mat-label>Subject Name</mat-label>
+          <input matInput [(ngModel)]="subjectName" name="subjectName"
+            placeholder="Ex. Math" required>
+        </mat-form-field>
+
+        <!-- Teacher Name Field -->
+        <mat-form-field class="example-full-width" floatLabel="always">
+          <mat-label>Teacher Name</mat-label>
+          <input matInput [(ngModel)]="teacherName" name="teacherName"
+            placeholder="Ex. Rahul" required>
+        </mat-form-field>
+
+        <!-- Day Field with Select Option -->
+        <mat-form-field class="example-full-width" floatLabel="always">
+          <mat-label>Day</mat-label>
+          <mat-select [(ngModel)]="day" name="day" required>
+            <mat-option value disabled>Select Day</mat-option>
+            <mat-option value="MONDAY">Monday</mat-option>
+            <mat-option value="TUESDAY">Tuesday</mat-option>
+            <mat-option value="WEDNESDAY">Wednesday</mat-option>
+            <mat-option value="THURSDAY">Thursday</mat-option>
+            <mat-option value="FRIDAY">Friday</mat-option>
+            <mat-option value="SATURDAY">Saturday</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Time Field with Select Dropdown -->
+        <mat-form-field class="example-full-width" floatLabel="always">
+          <mat-label>Time</mat-label>
+          <mat-select [(ngModel)]="time" name="time" required>
+            <mat-option value disabled>Select Time</mat-option>
+            <mat-option
+              *ngFor="let timeKey of ['10:00:00', '11:00:00', '12:00:00', '13:00:00', '14:00:00', '15:00:00']"
+              [value]="timeKey">
+              {{ convertTimeToDropdownFormat(timeKey) }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Classroom Field -->
+        <mat-form-field class="example-full-width" floatLabel="always">
+          <mat-label>Classroom</mat-label>
+          <input matInput [(ngModel)]="classroom" name="classroom"
+            placeholder="Ex. Room 101" required>
+        </mat-form-field>
+
+        <!-- Semester Name Field -->
+        <mat-form-field class="example-full-width" floatLabel="always">
+          <mat-label>Semester Name</mat-label>
+          <mat-select [(ngModel)]="semesterName" name="semesterName" required>
+            <mat-option value disabled>Select Semester</mat-option>
+            <mat-option value="Sem 2">Sem 2</mat-option>
+            <mat-option value="Sem 5">Sem 5</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Buttons Container -->
+        <div class="button-container">
+          <!-- Submit Button -->
+          <button mat-raised-button color="primary" type="submit">Update
+            Timetable</button>
+
+          <!-- Back Button -->
+          <button mat-button color="accent" [routerLink]="''"
+            class="back-button">
+            Back
+          </button>
+        </div>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
